@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Idea.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "User Index";
+    Layout = "~/Views/Shared/_layout_Admin.cshtml";
+}
+
+@*<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+    </ol>
+</nav>
+
+<div class="text-center mt-4">
+    <a class="btn btn-success" asp-area="Identity" asp-page="/Account/Register">Create New</a>
+</div>
+
+<div class="row d-flex align-items-center text-center font-weight-bold mt-5">
+    <div class="col-4">Username</div>
+    <div class="col-4">Full Name</div>
+    <div class="mr-auto"></div>
+</div>
+
+<hr />
+
+@foreach (var item in Model)
+{
+<div class="row d-flex align-items-center text-center">
+    <div class="col-4">
+        <a asp-action="Details" asp-route-id="@item.Id">
+            @Html.DisplayFor(modelItem => item.UserName)
+        </a>
+    </div>
+
+    <div class="col-4">
+        @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
+    </div>
+
+    <div class="d-flex ml-auto pr-2">
+        <div class="mr-2">
+            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm d-flex align-items-center rounded-0">
+                <span class='material-icons'>remove</span>
+            </a>
+        </div>
+
+        <div class="mr-2">
+            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm d-flex align-items-center rounded-0">
+                <span class="material-icons">edit</span>
+            </a>
+        </div>
+
+        <div class="mr-2">
+            <a asp-action="AddRole" asp-route-id="@item.Id" class="btn btn-primary btn-sm d-flex align-items-center rounded-0">
+                <span class="material-icons">people_alt</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+    <hr />
+}*@
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        List of Authorized Users
+                    </h3>
+
+                    <div class="card-tools">
+                        <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-success btn-sm" style="width: 50px;" placeholder="Create new"> <i class="fa fa-user-plus" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>User Name</th>
+                                <th>Full Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="col-5"> <a asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.UserName)</a> </td>
+                                    <td class="col-5"> @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.FirstName)</td>
+                                    <td class="col-2">
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning" placeholder="Edit"> <i class="fa fa-edit" style="color:white;" aria-hidden="true"></i></a>
+                                        <a asp-action="AddRole" asp-route-id="@item.Id" class="btn btn-primary" placeholder="Detail"> <i class="fa fa-user-cog" aria-hidden="true"></i></a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" placeholder="Delete"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</div>

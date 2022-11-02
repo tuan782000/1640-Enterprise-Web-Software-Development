@@ -1,0 +1,39 @@
+@model Idea.Models.Submission
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_layout_Admin.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="card-header">
+        <h3 class="card-title">Detail</h3>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Deadline_1)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Deadline_1)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Deadline_2)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Deadline_2)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <a asp-action="Edit" asp-route-id="@Model.Id" style="color:white" class="btn btn-warning" placeholder="Edit">Edit</a>
+            <a asp-action="Index" class="btn btn-primary">Back to list</a>
+        </form>
+    </div>
+</div>

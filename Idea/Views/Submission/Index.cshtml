@@ -1,0 +1,120 @@
+﻿@model IEnumerable<Idea.Models.Submission>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_layout_Admin.cshtml";
+}
+
+@*<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deadline_1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deadline_2)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var bgColor = "bg-success";
+
+            if (item.Deadline_2 < DateTime.Now)
+            {
+                bgColor = "bg-danger";
+            }
+            else if (item.Deadline_1 < DateTime.Now)
+            {
+                bgColor = "bg-warning";
+            }
+            <tr class="@bgColor">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deadline_1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deadline_2)
+                </td>
+                <td>
+                    <a asp-action="ViewIdeas" asp-route-submissionid="@item.Id" class="btn btn-light">View Ideas</a>
+                    @if (User.IsInRole("Manager"))
+                    {
+                        <a asp-action="ExportZIP" asp-route-submissionid="@item.Id" class="btn btn-light">Export ZIP</a>
+                        <a asp-action="ExportExcel" asp-route-submissionid="@item.Id" class="btn btn-light">Export Excel</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>*@
+
+
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">List of Submissions</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                                <th>@Html.DisplayNameFor(model => model.Deadline_1)</th>
+                                <th>@Html.DisplayNameFor(model => model.Deadline_2)</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                var bgColor = "bg-success";
+
+                                if (item.Deadline_2 < DateTime.Now)
+                                {
+                                    bgColor = "bg-danger";
+                                }
+                                else if (item.Deadline_1 < DateTime.Now)
+                                {
+                                    bgColor = "bg-warning";
+                                }
+                                <tr class="@bgColor">
+                                    <td class="col-3">@Html.DisplayFor(modelItem => item.Name)</td>
+                                    <td class="col-3">
+                                        @Html.DisplayFor(modelItem => item.Deadline_1)
+                                    </td>
+                                    <td class="col-3">
+                                        @Html.DisplayFor(modelItem => item.Deadline_2)
+                                    </td>
+                                    <td class="col-3">
+                                        <a asp-action="ViewIdeas" asp-route-submissionid="@item.Id" class="btn btn-light">View Ideas</a>
+                                        @if (User.IsInRole("Manager"))
+                                        {
+                                            <a asp-action="ExportZIP" asp-route-submissionid="@item.Id" class="btn btn-light">Export ZIP</a>
+                                            <a asp-action="ExportExcel" asp-route-submissionid="@item.Id" class="btn btn-light">Export Excel</a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</div>

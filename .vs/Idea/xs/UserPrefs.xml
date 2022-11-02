@@ -1,0 +1,36 @@
+﻿<Properties StartupConfiguration="{40052524-FC28-4A51-B524-024A94699C48}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Idea" expanded="True">
+            <Node name="Idea" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="AdminCategory" expanded="True" />
+                <Node name="Shared" expanded="True">
+                  <Node name="_Layout.cshtml" selected="True" />
+                </Node>
+                <Node name="Submission" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Idea PreferredExecutionTarget="/Applications/Google Chrome.app" />
+</Properties>
